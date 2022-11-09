@@ -14,14 +14,12 @@ dayjs.extend(window.dayjs_plugin_timezone);
 function renderSearchHistory() {
   searchHistoryContainer.innerHTML = "";
 
-  // Start at end of history array and count down to show the most recent at the top.
   for (var i = searchHistory.length - 1; i >= 0; i--) {
     var btn = document.createElement("button");
     btn.setAttribute("type", "button");
     btn.setAttribute("aria-controls", "today forecast");
     btn.classList.add("history-btn", "btn-history");
 
-    // `data-search` allows access to city name when click handler is invoked
     btn.setAttribute("data-search", searchHistory[i]);
     btn.textContent = searchHistory[i];
     searchHistoryContainer.append(btn);
